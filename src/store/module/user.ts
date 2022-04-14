@@ -1,13 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { login } from '@/api/login'
 import {
   setToken,
-  getToken,
-  removeToken,
-  setTokenTime
+  setUserInfo,
+  setUserPhoto,
+  removeToken
 }
   from '@/utils/utils'
 const state = {
-  token: getToken(),
+  token: '',
   userInfo: {}
 }
 const mutations = {
@@ -15,6 +16,12 @@ const mutations = {
   setToken (state:any, payload:any) {
     state.token = payload
     setToken(payload)
+  },
+  // 保存个人信息
+  setUserInfo (state:any, payload:any) {
+    state.userInfo = payload
+    setUserInfo(payload.nickname)
+    setUserPhoto(payload.avatarUrl)
   },
   // 退出登录
   logout (state:any) {
@@ -27,17 +34,12 @@ const actions = {
   // 登录
   async login (context:any, payload:any) {
     const res = await login(payload)
-    console.log(res)
-    // 存登录的时间戳
-    setTokenTime()
+    console.log(res, '111')
     context.commit('setToken', res.data.cookie)
+    context.commit('setUserInfo', res.data.profile)
   },
-  // 获取用户资料
-  async getUserInfo (context:any) {
-    // const res = await getUserInfo()
-    // const userInfo = await getUserInfoById(res.userId)
-    // context.commit('setUserInfo', { ...res, ...userInfo })
-    // return res
+  logout (context: { commit: (arg0: string) => void }) {
+    context.commit('logout')
   }
 }
 

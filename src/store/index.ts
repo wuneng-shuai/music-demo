@@ -1,9 +1,13 @@
 import { createStore } from 'vuex'
 import user from './module/user'
-import getters from './getters'
-export default createStore({
+interface IRootState {
+  count: number
+}
+
+const store = createStore<IRootState>({
+  // 定义state的类型限定
   modules: {
     user
-  },
-  getters
+  }
 })
+export default store
