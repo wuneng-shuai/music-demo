@@ -16,9 +16,10 @@
     "types": [
       "webpack-env"
     ],
+    "baseUrl": "./",  // 这里需要配置
     "paths": {
       "@/*": [
-        "src/*"
+        "./src/*"
       ]
     },
     "lib": [
@@ -33,6 +34,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
+    "src/**/*.d.ts",
     "tests/**/*.tsx"
   ],
   "exclude": [

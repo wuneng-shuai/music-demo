@@ -19,10 +19,14 @@ import FooterView from './components/FooterView.vue'
 import HeaderViesVue from './components/HeaderVies.vue'
 </script>
 <style lang="scss">
+.el-container:nth-child(2){
+   background: url(../../assets/bg.jpeg) center center no-repeat;
+  background-size: 100% 100%;
+}
  .el-aside {
-        background-color: #D3DCE6;
         color: #333;
         text-align: center;
         height: 100vh;
+        background-color: skyblue;
  }
 </style>

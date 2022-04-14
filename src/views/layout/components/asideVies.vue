@@ -29,14 +29,22 @@
   </div>
 </template>
 
-<script lang='ts' setup>
+<script lang='ts'>
 import router from '@/router'
-const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
-  router.push(key)
-}
-const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
+export default {
+  setup () {
+    const handleOpen = (key: string, keyPath: string[]) => {
+      console.log(key, keyPath)
+      router.push(key)
+    }
+    const handleClose = (key: string, keyPath: string[]) => {
+      console.log(key, keyPath)
+    }
+    return {
+      handleOpen,
+      handleClose
+    }
+  }
 }
 </script>
 <style lang="scss">

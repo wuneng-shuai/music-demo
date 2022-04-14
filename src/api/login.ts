@@ -7,3 +7,16 @@ export const login = (params: any) => {
     params
   })
 }
+// 二维码 key 生成接口
+export const getLoginKye = () => {
+  return serve({
+    url: '/login/qr/key'
+  })
+}
+// 二维码生成接口
+export const getQrCreate = (params: any) => {
+  return serve({
+    url: '/login/qr/create',
+    params
+  })
+}
